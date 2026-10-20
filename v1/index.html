@@ -1,0 +1,74 @@
+<!doctype html>
+<!-- Speak & Groove: a talking toy groovebox. Type, it spells, the band joins in. -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="theme-color" content="#141110">
+<meta name="description" content="Type a letter, a robot voice spells it through a big reverb, and a techno band slowly joins in, following what you type.">
+<title>Speak &amp; Groove</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,400..900;1,62..125,400..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="stage">
+  <div id="device" class="device off">
+    <div class="handle" aria-hidden="true"></div>
+    <header class="top">
+      <div class="logo"><span class="w1">Speak</span><span class="amp">&amp;</span><span class="w2">Groove</span></div>
+      <div class="model">GZOWO LABS · SG-33 TALKING GROOVEBOX</div>
+      <button class="power" id="power" aria-label="Power">
+        <span class="pw-off">OFF</span><span class="pw-track"><span class="pw-thumb"></span></span><span class="pw-on">ON</span>
+      </button>
+    </header>
+
+    <section class="disc-wrap">
+      <div class="disc" id="disc">
+        <div class="disc-metal"></div>
+        <svg viewBox="-100 -100 200 200" id="discSvg" aria-label="Round stylophone"></svg>
+        <div class="grille"></div>
+      </div>
+      <div class="caption">STYLOPHONE · DRAG THE STYLUS ROUND</div>
+    </section>
+
+    <section class="vfd-wrap">
+      <div class="vfd" id="vfd">
+        <div class="vfd-row big"><span class="ghost">~~~~~~~~~~</span><span class="lit" id="vfdBig"></span></div>
+        <div class="vfd-row small">
+          <span class="seg"><span class="ghost">~~~~~~~~~</span><span class="lit" id="vfdInfo"></span></span>
+          <span class="steps" id="steps"></span>
+          <span class="meter" id="meter"></span>
+        </div>
+      </div>
+    </section>
+
+    <section class="mixer" id="mixer" aria-label="Layers"></section>
+    <section class="knobs" id="knobs" aria-label="Controls"></section>
+
+    <section class="xy-wrap">
+      <div class="xy" id="xy"><canvas id="xyCanvas"></canvas>
+        <span class="ax ax-x">LP ◂ ▸ HP</span><span class="ax ax-y">RES · ECHO ▴</span>
+      </div>
+      <div class="caption">TOUCH FX</div>
+    </section>
+
+    <section class="keyboard" id="keyboard" aria-label="Keys"></section>
+
+    <svg class="cable" id="cable" aria-hidden="true">
+      <path id="cablePath" d=""></path>
+      <g id="stylus">
+        <path class="st-cable-end" d="M0 0 L0 0"></path>
+        <rect class="st-body" x="-7" y="-128" width="14" height="104" rx="7"></rect>
+        <rect class="st-band" x="-7.5" y="-60" width="15" height="6" rx="2"></rect>
+        <path class="st-tip" d="M-6 -26 L6 -26 L1.2 -2 L-1.2 -2 Z"></path>
+        <circle class="st-point" cx="0" cy="-1" r="1.6"></circle>
+      </g>
+      <circle class="jack" id="jack" r="9"></circle>
+    </svg>
+  </div>
+</div>
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
