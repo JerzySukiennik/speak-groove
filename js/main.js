@@ -553,7 +553,7 @@ const stylusG = $('stylus');
 const cablePath = $('cablePath');
 const jack = $('jack');
 const cableEl = $('cable');
-const st = { x: 0, y: 0, rot: 52, tx: 0, ty: 0, trot: 52, lift: 0, tlift: 0 };
+const st = { x: 0, y: 0, rot: 126, tx: 0, ty: 0, trot: 126, lift: 0, tlift: 0 };
 let restPos = { x: 0, y: 0 };
 let jackPos = { x: 0, y: 0 };
 
@@ -566,7 +566,7 @@ function placeStylus(snap) {
   const r = disc.getBoundingClientRect();
   const c = toDevice(r.left + r.width / 2, r.top + r.height / 2);
   const rad = r.width / 2 / scale;
-  restPos = { x: c.x + rad * 0.78, y: c.y + rad * 0.86 };
+  restPos = { x: c.x + rad * 0.8, y: c.y + rad * 0.62 };
   jackPos = { x: c.x + rad * 1.02, y: c.y + rad * 0.98 };
   cableEl.classList.toggle('away', portrait && !stylo.down);
   jack.setAttribute('cx', jackPos.x);
@@ -574,7 +574,7 @@ function placeStylus(snap) {
   if (snap || (!stylo.down && !stylo.hover)) {
     st.tx = restPos.x;
     st.ty = restPos.y;
-    st.trot = 52;
+    st.trot = 126;
     st.tlift = 0;
     if (snap) Object.assign(st, { x: st.tx, y: st.ty, rot: st.trot, lift: 0 });
   }
@@ -597,7 +597,7 @@ function stylusTarget(e) {
 function stylusRest() {
   st.tx = restPos.x;
   st.ty = restPos.y;
-  st.trot = 52;
+  st.trot = 126;
   st.tlift = 0;
   startLoop();
 }
@@ -816,4 +816,4 @@ refreshMixer();
 drawXY();
 vfdBig.textContent = '';
 vfdInfo.textContent = '';
-window.__sg = { engine, act };
+window.__sg = { engine, act, refresh: refreshMixer };
